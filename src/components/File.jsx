@@ -82,7 +82,7 @@ export default function File(props) {
       <div className="absolute bottom-2 right-2 gap-4 mx-4 flex flex-row">
         <div>
           <FacebookShareButton
-            url={`/image-page/${props.file._id.toString()}`}
+            url={`https://pictureit.vercel.app/image-page/${props.file._id.toString()}`}
             quote={"Title or jo bhi aapko likhna ho"}
             hashtag={"#image and text"}
           >

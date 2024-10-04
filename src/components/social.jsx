@@ -5,11 +5,11 @@ import { usePathname } from "next/navigation";
 const social = () => {
   //const currentPageUrl = window.location.href;
   //const shareUrl = usePathname();
-  const shareUrl = "https://gist.github.com/";
+
   return (
     <div className="relative max-w-[650px] rounded-xl overflow-hidden mx-auto mb-7">
       <FacebookShareButton
-        url={shareUrl}
+        url={`https://pictureit.vercel.app/image-page/${props.file._id.toString()}`}
         quote={"Title or jo bhi aapko likhna ho"}
         hashtag={"#image and text"}
       >
