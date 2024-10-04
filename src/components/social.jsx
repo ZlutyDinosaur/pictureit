@@ -2,7 +2,7 @@
 import { FacebookShareButton, FacebookIcon } from "react-share";
 import { usePathname } from "next/navigation";
 
-const social = () => {
+const Social = () => {
   //const currentPageUrl = window.location.href;
   const shareUrl = usePathname();
 
@@ -19,4 +19,4 @@ const social = () => {
   );
 };
 
-export default social;
+export default Social;
