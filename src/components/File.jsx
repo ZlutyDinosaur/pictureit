@@ -7,6 +7,21 @@ import { useState } from "react";
 import { FacebookShareButton, FacebookIcon } from "react-share";
 //import { usePathname } from "next/navigation";
 import { CldOgImage } from "next-cloudinary";
+import { getCldOgImageUrl } from "next-cloudinary";
+
+export const metadata = {
+  openGraph: {
+    images: [
+      {
+        url: getCldOgImageUrl({
+          src: "/srphfilqomhlgbr6fbhv",
+        }),
+        width: 1200,
+        height: 627,
+      },
+    ],
+  },
+};
 
 export default function File(props) {
   //const currentPageUrl = window.location.href;
@@ -20,11 +35,10 @@ export default function File(props) {
   return (
     <div className="relative max-w-[650px] rounded-xl overflow-hidden mx-auto mb-7">
       <img src="/aspect-ratio.png" />
-
       <div className="absolute inset-0 bg-gray-200 grid">
         <span className="loading loading-dots loading-lg m-auto"></span>
       </div>
-
+      <CldOgImage src={props.file.photo} />;
       <CldImage
         className="absolute inset-0 mx-auto rounded-xl"
         crop={{ type: "pad", source: true }}
@@ -69,7 +83,6 @@ export default function File(props) {
           },
         ]}
       ></CldImage>
-
       {/* List of text */}
       {/* {props.file.line1}
       <br />
@@ -77,16 +90,10 @@ export default function File(props) {
       <br />
       {props.file.line3}
       <br /> */}
-
       {/* Facebook share */}
-
       <div className="absolute bottom-2 right-2 gap-4 mx-4 flex flex-row">
         <div>
-          <FacebookShareButton
-            url={`https://pictureit.vercel.app/image-page/${props.file._id.toString()}`}
-            quote={"Title or jo bhi aapko likhna ho"}
-            hashtag={"#image and text"}
-          >
+          <FacebookShareButton url="https://pictureit-zanets-projects.vercel.app/">
             <FacebookIcon size={40} round={true} />
           </FacebookShareButton>
         </div>
