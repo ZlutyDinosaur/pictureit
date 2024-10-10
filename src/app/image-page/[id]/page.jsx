@@ -5,7 +5,7 @@ import { ObjectId } from "mongodb";
 import { getUserFromCookie } from "@/library/getUser";
 import { redirect } from "next/navigation";
 import { CldImage } from "next-cloudinary";
-import Social from "@/components/Social";
+//import Social from "@/components/Social";
 import { getCldOgImageUrl } from "next-cloudinary";
 
 const publicId = "/srphfilqomhlgbr6fbhv";
@@ -91,7 +91,6 @@ const ImagePage = async (props) => {
     <div>
       <div class>
         <File file={doc} />
-        <Social />
       </div>
     </div>
   );
