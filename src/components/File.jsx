@@ -9,20 +9,6 @@ import { FacebookShareButton, FacebookIcon } from "react-share";
 import { CldOgImage } from "next-cloudinary";
 import { getCldOgImageUrl } from "next-cloudinary";
 
-export const metadata = {
-  openGraph: {
-    images: [
-      {
-        url: getCldOgImageUrl({
-          src: "/srphfilqomhlgbr6fbhv",
-        }),
-        width: 1200,
-        height: 627,
-      },
-    ],
-  },
-};
-
 export default function File(props) {
   //const currentPageUrl = window.location.href;
   //const shareUrl = usePathname();
@@ -30,7 +16,7 @@ export default function File(props) {
   //const shareUrl = { imageSrc };
 
   if (!props.file.photo) {
-    props.file.photo = "nttjuphavds5ncxj2ajf.jpg";
+    props.file.photo = "jvkatnwdiryi22gdbvrc";
   }
   return (
     <div className="relative max-w-[650px] rounded-xl overflow-hidden mx-auto mb-7">
@@ -38,7 +24,7 @@ export default function File(props) {
       <div className="absolute inset-0 bg-gray-200 grid">
         <span className="loading loading-dots loading-lg m-auto"></span>
       </div>
-      <CldOgImage src={props.file.photo} />;
+      <CldOgImage src={props.file.photo} />
       <CldImage
         className="absolute inset-0 mx-auto rounded-xl"
         crop={{ type: "pad", source: true }}

@@ -148,18 +148,6 @@ const FileForm = (props) => {
           </CldUploadWidget>
 
           <img className="rounded-md mb-3" src={imageSrc} />
-
-          {/* {imageSrc && !uploadData && (
-            <p>
-              <button>Upload Files</button>
-            </p>
-          )} */}
-
-          {/* {uploadData && (
-            <code>
-              <pre>{JSON.stringify(uploadData, null, 2)}</pre>
-            </code>
-          )} */}
         </div>
         <input type="hidden" name="public_id" value={public_id} />
         <input type="hidden" name="version" value={version} />

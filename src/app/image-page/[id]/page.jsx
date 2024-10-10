@@ -5,7 +5,6 @@ import { ObjectId } from "mongodb";
 import { getUserFromCookie } from "@/library/getUser";
 import { redirect } from "next/navigation";
 import { CldImage } from "next-cloudinary";
-//import Social from "@/components/Social";
 
 async function getDoc(id) {
   const filesCollection = await getCollection("files");
