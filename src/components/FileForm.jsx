@@ -8,15 +8,6 @@ import { createFile, editFile } from "../../server/fileController";
 const FileForm = (props) => {
   const [imageSrc, setImageSrc] = useState();
 
-  // function handleOnChange(changeEvent) {
-  //   const reader = new FileReader();
-
-  //   reader.onload = function (onLoadEvent) {
-  //     setImageSrc(onLoadEvent.target.result);
-  //   };
-
-  // }
-
   const [signature, setSignature] = useState("");
   const [public_id, setPublic_id] = useState("");
   const [version, setVersion] = useState("");
@@ -128,7 +119,7 @@ const FileForm = (props) => {
         <div>
           <CldUploadWidget
             onSuccess={(result, { widget }) => {
-              //console.log(result?.info);
+              console.log(result?.info);
               setSignature(result?.info.signature);
               setPublic_id(result?.info.public_id);
               setVersion(result?.info.version);

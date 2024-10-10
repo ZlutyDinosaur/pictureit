@@ -6,6 +6,7 @@ import { deleteFile } from "../../server/fileController";
 import { useState } from "react";
 import { FacebookShareButton, FacebookIcon } from "react-share";
 //import { usePathname } from "next/navigation";
+import { CldOgImage } from "next-cloudinary";
 
 export default function File(props) {
   //const currentPageUrl = window.location.href;
