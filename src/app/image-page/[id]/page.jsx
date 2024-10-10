@@ -8,7 +8,7 @@ import { CldImage } from "next-cloudinary";
 import Social from "@/components/Social";
 import { getCldOgImageUrl } from "next-cloudinary";
 
-const publicId = "pictureit/srphfilqomhlgbr6fbhv";
+const publicId = "/srphfilqomhlgbr6fbhv";
 const headline = "Black crow";
 const body = "This is black crow";
 
