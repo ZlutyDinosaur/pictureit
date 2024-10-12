@@ -11,13 +11,14 @@ import { getCldOgImageUrl } from "next-cloudinary";
 
 export default function File(props) {
   //const currentPageUrl = window.location.href;
-  const shareUrl = usePathname();
+  //const shareUrl = usePathname();
 
   //const shareUrl = { imageSrc };
 
   if (!props.file.photo) {
     props.file.photo = "jvkatnwdiryi22gdbvrc";
   }
+
   return (
     <div className="relative max-w-[650px] rounded-xl overflow-hidden mx-auto mb-7">
       <img src="/aspect-ratio.png" />
@@ -79,7 +80,7 @@ export default function File(props) {
       {/* Facebook share */}
       <div className="absolute bottom-2 right-2 gap-4 mx-4 flex flex-row">
         <div>
-          <FacebookShareButton url={shareUrl}>
+          <FacebookShareButton url="https://pictureit.vercel.app/">
             <FacebookIcon size={40} round={true} />
           </FacebookShareButton>
         </div>

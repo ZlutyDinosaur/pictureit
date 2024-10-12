@@ -7,20 +7,6 @@ import { getCldOgImageUrl } from "next-cloudinary";
 import { v2 as cloudinary } from "cloudinary";
 
 export const metadata = {
-  openGraph: {
-    images: [
-      {
-        url: getCldOgImageUrl({
-          src: "/jvkatnwdiryi22gdbvrc",
-        }),
-        secure_url: getCldOgImageUrl({
-          src: "/jvkatnwdiryi22gdbvrc",
-        }),
-        width: 1200,
-        height: 627,
-      },
-    ],
-  },
   title: "Layout page",
   description: "Layout page",
 };
