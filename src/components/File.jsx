@@ -80,9 +80,7 @@ export default function File(props) {
       {/* Facebook share */}
       <div className="absolute bottom-2 right-2 gap-4 mx-4 flex flex-row">
         <div>
-          <FacebookShareButton
-            url={`https://pictureit-fvuigmur9-zanets-projects.vercel.app/image-page/${props.file._id.toString()}`}
-          >
+          <FacebookShareButton url="https://pictureit.vercel.app/image-page/">
             <FacebookIcon size={40} round={true} />
           </FacebookShareButton>
         </div>
