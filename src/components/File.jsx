@@ -9,6 +9,11 @@ import { FacebookShareButton, FacebookIcon } from "react-share";
 import { CldOgImage } from "next-cloudinary";
 import { getCldOgImageUrl } from "next-cloudinary";
 
+export const metadata = {
+  title: "File page" | "Layout page",
+  description: "File page",
+};
+
 export default function File(props) {
   //const currentPageUrl = window.location.href;
   //const shareUrl = usePathname();
@@ -24,7 +29,7 @@ export default function File(props) {
       <div className="absolute inset-0 bg-gray-200 grid">
         <span className="loading loading-dots loading-lg m-auto"></span>
       </div>
-      <CldOgImage src={props.file.photo} />
+      {/* <CldOgImage src={props.file.photo} /> */}
       <CldImage
         className="absolute inset-0 mx-auto rounded-xl"
         crop={{ type: "pad", source: true }}

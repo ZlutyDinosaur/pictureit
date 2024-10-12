@@ -7,6 +7,7 @@ import { getUserFromCookie } from "@/library/getUser";
 import { redirect } from "next/navigation";
 import { CldImage } from "next-cloudinary";
 import { getCldImageUrl } from "next-cloudinary";
+import { getCldOgImageUrl } from "next-cloudinary";
 
 async function getDoc(id) {
   const filesCollection = await getCollection("files");
@@ -15,6 +16,27 @@ async function getDoc(id) {
   });
   return result;
 }
+
+// export async function generateMetadata({ params, searchParams }) {
+//   return {
+//     openGraph: {
+//       images: [
+//         {
+//           url: getCldOgImageUrl({
+//             src: "/lxsmurmmyhzj5ztw3ioq",
+//           }),
+//           secure_url: getCldOgImageUrl({
+//             src: "/lxsmurmmyhzj5ztw3ioq",
+//           }),
+//           width: 1200,
+//           height: 627,
+//         },
+//       ],
+//     },
+//     title: "Photo",
+//     description: "Share",
+//   };
+// }
 
 const EditFile = async (props) => {
   const doc = await getDoc(props.params.id);

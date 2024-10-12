@@ -4,6 +4,47 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import { CldOgImage } from "next-cloudinary";
 import { getCldOgImageUrl } from "next-cloudinary";
+import { v2 as cloudinary } from "cloudinary";
+
+export const metadata = {
+  openGraph: {
+    images: [
+      {
+        url: getCldOgImageUrl({
+          src: "/jvkatnwdiryi22gdbvrc",
+        }),
+        secure_url: getCldOgImageUrl({
+          src: "/jvkatnwdiryi22gdbvrc",
+        }),
+        width: 1200,
+        height: 627,
+      },
+    ],
+  },
+  title: "Layout page",
+  description: "Layout page",
+};
+
+// export async function generateMetadata({ params, searchParams }) {
+//   return {
+//     openGraph: {
+//       images: [
+//         {
+//           url: getCldOgImageUrl({
+//             src: "/jvkatnwdiryi22gdbvrc",
+//           }),
+//           secure_url: getCldOgImageUrl({
+//             src: "/jvkatnwdiryi22gdbvrc",
+//           }),
+//           width: 1200,
+//           height: 627,
+//         },
+//       ],
+//     },
+//     title: "Picture it",
+//     description: "Pictue & text",
+//   };
+// }
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -16,26 +57,26 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-export const metadata = {
-  openGraph: {
-    images: [
-      {
-        url: getCldOgImageUrl({
-          src: "/srphfilqomhlgbr6fbhv",
-        }),
-        secure_url: getCldOgImageUrl({
-          src: "/srphfilqomhlgbr6fbhv",
-        }),
-        width: 1200,
-        height: 627,
-      },
-    ],
-  },
-  title: "Picture it",
-  description: "Pictue & text",
-};
+// export const metadata = {
+//   openGraph: {
+//     images: [
+//       {
+//         url: getCldOgImageUrl({
+//           src: "/lxsmurmmyhzj5ztw3ioq",
+//         }),
+//         secure_url: getCldOgImageUrl({
+//           src: "/lxsmurmmyhzj5ztw3ioq",
+//         }),
+//         width: 1200,
+//         height: 627,
+//       },
+//     ],
+//   },
+//   title: "Picture it",
+//   description: "Pictue & text",
+// };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <head></head>
