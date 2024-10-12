@@ -5,18 +5,13 @@ import Link from "next/link";
 import { deleteFile } from "../../server/fileController";
 import { useState } from "react";
 import { FacebookShareButton, FacebookIcon } from "react-share";
-//import { usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { CldOgImage } from "next-cloudinary";
 import { getCldOgImageUrl } from "next-cloudinary";
 
-export const metadata = {
-  title: "File page" | "Layout page",
-  description: "File page",
-};
-
 export default function File(props) {
   //const currentPageUrl = window.location.href;
-  //const shareUrl = usePathname();
+  const shareUrl = usePathname();
 
   //const shareUrl = { imageSrc };
 
@@ -84,7 +79,7 @@ export default function File(props) {
       {/* Facebook share */}
       <div className="absolute bottom-2 right-2 gap-4 mx-4 flex flex-row">
         <div>
-          <FacebookShareButton url="https://pictureit-zanets-projects.vercel.app/">
+          <FacebookShareButton url={shareUrl}>
             <FacebookIcon size={40} round={true} />
           </FacebookShareButton>
         </div>
