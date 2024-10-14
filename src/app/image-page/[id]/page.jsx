@@ -15,26 +15,23 @@ async function getDoc(id) {
   return result;
 }
 
-export async function generateMetadata({ params }) {
-  const id = params.id;
-  const filesCollection = await getCollection("files");
-  const result = await filesCollection.findOne({
-    _id: ObjectId.createFromHexString(id),
-  });
-  console.log(result.photo_id);
-  console.log(id);
+export async function generateMetadata({ params, searchParams }) {
   return {
     openGraph: {
       images: [
         {
           url: getCldOgImageUrl({
-            src: result.photo_id,
+            src: "uggwv3umugtghfbyusxi",
           }),
           secure_url: getCldOgImageUrl({
-            src: result.photo_id,
+            src: "uggwv3umugtghfbyusxi",
+          }),
+          secure: getCldOgImageUrl({
+            src: "uggwv3umugtghfbyusxi",
           }),
           width: 1200,
           height: 627,
+          type: "image/jpeg",
         },
       ],
     },
@@ -42,6 +39,34 @@ export async function generateMetadata({ params }) {
     description: "Picture page",
   };
 }
+
+// export async function generateMetadata({ params }) {
+//   const id = params.id;
+//   const filesCollection = await getCollection("files");
+//   const result = await filesCollection.findOne({
+//     _id: ObjectId.createFromHexString(id),
+//   });
+//   console.log(result.photo_id);
+//   console.log(id);
+//   return {
+//     openGraph: {
+//       images: [
+//         {
+//           url: getCldOgImageUrl({
+//             src: result.photo_id,
+//           }),
+//           secure_url: getCldOgImageUrl({
+//             src: result.photo_id,
+//           }),
+//           width: 1200,
+//           height: 627,
+//         },
+//       ],
+//     },
+//     title: "Picture page",
+//     description: "Picture page",
+//   };
+// }
 
 const ImagePage = async (props) => {
   const doc = await getDoc(props.params.id);
