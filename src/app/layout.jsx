@@ -12,19 +12,60 @@ import { getCldImageUrl } from "next-cloudinary";
 //   description: "Layout page",
 // };
 
-export async function generateMetadata({ params, searchParams }) {
+export async function generateMetadata({ params }) {
+  const publicId = "uggwv3umugtghfbyusxi";
+  const headline = "Hello";
+  const body = "Dont know";
+
   return {
     openGraph: {
       images: [
         {
           url: getCldOgImageUrl({
-            src: "zr44enbpjlnltbmmiosm",
-          }),
-          secure_url: getCldOgImageUrl({
-            src: "zr44enbpjlnltbmmiosm",
-          }),
-          secure: getCldOgImageUrl({
-            src: "zr44enbpjlnltbmmiosm",
+            src: publicId,
+            effects: [{ colorize: "100,co_black" }],
+            overlays: [
+              {
+                width: 2400,
+                height: 1254,
+                publicId,
+                crop: "fill",
+                effects: [
+                  {
+                    opacity: 60,
+                  },
+                ],
+              },
+              {
+                width: 1400,
+                crop: "fit",
+                text: {
+                  alignment: "center",
+                  color: "white",
+                  fontFamily: "Source Sans Pro",
+                  fontSize: 160,
+                  fontWeight: "bold",
+                  text: headline,
+                },
+                position: {
+                  y: -100,
+                },
+              },
+              {
+                width: 1400,
+                crop: "fit",
+                text: {
+                  alignment: "center",
+                  color: "white",
+                  fontFamily: "Source Sans Pro",
+                  fontSize: 74,
+                  text: body,
+                },
+                position: {
+                  y: 100,
+                },
+              },
+            ],
           }),
           width: 1200,
           height: 627,
@@ -32,8 +73,6 @@ export async function generateMetadata({ params, searchParams }) {
         },
       ],
     },
-    title: "Home page",
-    description: "Home page",
   };
 }
 
@@ -71,7 +110,7 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <head></head>
-      {/* <CldOgImage src="/srphfilqomhlgbr6fbhv" /> */}
+
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
