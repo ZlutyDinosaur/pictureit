@@ -15,35 +15,98 @@ async function getDoc(id) {
   return result;
 }
 
-export async function generateMetadata({ params, searchParams }) {
+export async function generateMetadata({ params }) {
+  const publicId = "uggwv3umugtghfbyusxi";
+  const headline = "Hello";
+  const body = "Dont know";
+
   return {
     openGraph: {
       images: [
         {
           url: getCldOgImageUrl({
-            src: "uggwv3umugtghfbyusxi",
-          }),
-          secure_url: getCldOgImageUrl({
-            src: "uggwv3umugtghfbyusxi",
-          }),
-          secure: getCldOgImageUrl({
-            src: "uggwv3umugtghfbyusxi",
+            src: publicId,
+            effects: [{ colorize: "100,co_black" }],
+            overlays: [
+              {
+                width: 2400,
+                height: 1254,
+                publicId,
+                crop: "fill",
+                effects: [
+                  {
+                    opacity: 60,
+                  },
+                ],
+              },
+              {
+                width: 1400,
+                crop: "fit",
+                text: {
+                  alignment: "center",
+                  color: "white",
+                  fontFamily: "Source Sans Pro",
+                  fontSize: 160,
+                  fontWeight: "bold",
+                  text: headline,
+                },
+                position: {
+                  y: -100,
+                },
+              },
+              {
+                width: 1400,
+                crop: "fit",
+                text: {
+                  alignment: "center",
+                  color: "white",
+                  fontFamily: "Source Sans Pro",
+                  fontSize: 74,
+                  text: body,
+                },
+                position: {
+                  y: 100,
+                },
+              },
+            ],
           }),
           width: 1200,
           height: 627,
-          type: "image/jpeg",
-          overlays: [
-            {
-              text: "Hello",
-            },
-          ],
         },
       ],
     },
-    title: "Picture page",
-    description: "Picture page",
   };
 }
+
+// export async function generateMetadata({ params, searchParams }) {
+//   return {
+//     openGraph: {
+//       images: [
+//         {
+//           url: getCldOgImageUrl({
+//             src: "uggwv3umugtghfbyusxi",
+//           }),
+//           secure_url: getCldOgImageUrl({
+//             src: "uggwv3umugtghfbyusxi",
+//           }),
+//           secure: getCldOgImageUrl({
+//             src: "uggwv3umugtghfbyusxi",
+//           }),
+//           width: 1200,
+//           height: 627,
+//           type: "image/jpeg",
+//           overlays: [
+//             {
+//               text: "Hello",
+//             },
+//           ],
+//         },
+//       ],
+//     },
+//     title: "Picture page",
+//     description: "Picture page",
+//   };
+// }
 
 // export async function generateMetadata({ params }) {
 //   const id = params.id;
