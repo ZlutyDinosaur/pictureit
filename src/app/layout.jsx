@@ -5,32 +5,37 @@ import Footer from "../components/footer";
 import { CldOgImage } from "next-cloudinary";
 import { getCldOgImageUrl } from "next-cloudinary";
 import { v2 as cloudinary } from "cloudinary";
+import { getCldImageUrl } from "next-cloudinary";
 
-export const metadata = {
-  title: "Layout page",
-  description: "Layout page",
-};
+// export const metadata = {
+//   title: "Layout page",
+//   description: "Layout page",
+// };
 
-// export async function generateMetadata({ params, searchParams }) {
-//   return {
-//     openGraph: {
-//       images: [
-//         {
-//           url: getCldOgImageUrl({
-//             src: "/jvkatnwdiryi22gdbvrc",
-//           }),
-//           secure_url: getCldOgImageUrl({
-//             src: "/jvkatnwdiryi22gdbvrc",
-//           }),
-//           width: 1200,
-//           height: 627,
-//         },
-//       ],
-//     },
-//     title: "Picture it",
-//     description: "Pictue & text",
-//   };
-// }
+export async function generateMetadata({ params, searchParams }) {
+  return {
+    openGraph: {
+      images: [
+        {
+          url: getCldOgImageUrl({
+            src: "zr44enbpjlnltbmmiosm",
+          }),
+          secure_url: getCldOgImageUrl({
+            src: "zr44enbpjlnltbmmiosm",
+          }),
+          secure: getCldOgImageUrl({
+            src: "zr44enbpjlnltbmmiosm",
+          }),
+          width: 1200,
+          height: 627,
+          type: "image/jpeg",
+        },
+      ],
+    },
+    title: "Home page",
+    description: "Home page",
+  };
+}
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
