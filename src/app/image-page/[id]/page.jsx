@@ -32,6 +32,11 @@ export async function generateMetadata({ params, searchParams }) {
           width: 1200,
           height: 627,
           type: "image/jpeg",
+          overlays: [
+            {
+              text: "Hello",
+            },
+          ],
         },
       ],
     },
