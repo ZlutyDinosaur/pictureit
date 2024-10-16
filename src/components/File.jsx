@@ -131,14 +131,20 @@ export default function File(props) {
       <div className="absolute bottom-2 right-2 gap-4 mx-4 flex flex-row">
         <div>
           <FacebookShareButton
-            url={`https://pictureit.vercel.app/image-page/${props.file._id.toString()}`}
+            url={`https://pictureit.vercel.app/picture-shere`}
           >
             <FacebookIcon size={40} round={true} />
           </FacebookShareButton>
         </div>
         <Link
           className="bg-black/40 hover:bg-black/70 rounded-md p-1 text-white/60 hover:text-white/80"
-          href={`/image-page/${props.file._id.toString()}`}
+          href={{
+            pathname: `/picture-shere`,
+            query: {
+              search: props.file.photo_id,
+              user: props.file._id.toString(),
+            },
+          }}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

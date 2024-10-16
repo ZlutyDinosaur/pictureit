@@ -1,23 +1,26 @@
-import localFont from "next/font/local";
-import "./globals.css";
-import Header from "../components/header";
-import Footer from "../components/footer";
-import { CldOgImage } from "next-cloudinary";
+import React from "react";
+import { CldImage } from "next-cloudinary";
+import Img from "@/components/Img";
+import File from "@/components/File";
+import { getCollection } from "@/library/db";
+import { ObjectId } from "mongodb";
 import { getCldOgImageUrl } from "next-cloudinary";
-import { v2 as cloudinary } from "cloudinary";
-import { getCldImageUrl } from "next-cloudinary";
-import { getUserFromCookie } from "@/library/getUser";
 
-// export const metadata = {
-//   title: "Layout page",
-//   description: "Layout page",
-// };
+async function getDoc(id) {
+  const filesCollection = await getCollection("files");
+  const result = await filesCollection.findOne({
+    _id: ObjectId.createFromHexString(id),
+  });
+  return result;
+}
 
-export async function generateMetadata({ params }) {
-  const publicId = "jvkatnwdiryi22gdbvrc";
+export async function generateMetadata({ searchParams }) {
+  // const doc = await getDoc(searchParams.search);
+  const publicId = searchParams.search;
   const headline = "Hello";
   const body = "Dont know";
-
+  console.log(`searchparames=${searchParams.search}`);
+  //console.log(`doc=${doc.photo}`);
   return {
     openGraph: {
       images: [
@@ -123,50 +126,15 @@ export async function generateMetadata({ params }) {
   };
 }
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
-
-// export const metadata = {
-//   openGraph: {
-//     images: [
-//       {
-//         url: getCldOgImageUrl({
-//           src: "/lxsmurmmyhzj5ztw3ioq",
-//         }),
-//         secure_url: getCldOgImageUrl({
-//           src: "/lxsmurmmyhzj5ztw3ioq",
-//         }),
-//         width: 1200,
-//         height: 627,
-//       },
-//     ],
-//   },
-//   title: "Picture it",
-//   description: "Pictue & text",
-// };
-
-export default async function RootLayout({ children }) {
+const PictureShere = async ({ searchParams }, props) => {
+  console.log(`user=${searchParams.user}`);
+  const doc = await getDoc(searchParams.user);
+  console.log(searchParams.search);
   return (
-    <html lang="en">
-      <head></head>
-
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Header />
-        <main className="flex flex-col mx-auto pt-11 bg-white h-[calc(100vh-24vh)]">
-          {children}
-        </main>
-        <Footer />
-      </body>
-    </html>
+    <div>
+      <File file={doc} />
+    </div>
   );
-}
+};
+
+export default PictureShere;
